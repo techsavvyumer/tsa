@@ -16,6 +16,7 @@ from nltk.corpus import stopwords
 from wordcloud import WordCloud
 from textblob import TextBlob
 
+nltk.download('wordnet')
 
 # authentication of consumer key and secret (i.e API authentication)
 auth = tweepy.OAuthHandler(st.secrets["consumer_key"], st.secrets["consumer_secret"])
