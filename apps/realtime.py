@@ -17,6 +17,7 @@ from wordcloud import WordCloud
 from textblob import TextBlob
 
 nltk.download('wordnet')
+nltk.download('omw-1.4')
 
 # authentication of consumer key and secret (i.e API authentication)
 auth = tweepy.OAuthHandler(st.secrets["consumer_key"], st.secrets["consumer_secret"])
