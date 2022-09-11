@@ -16,6 +16,7 @@ def app(): # define the app
     st.header("Sentiment Analysis Demo")
     # getting text input to analyze sentiment
     text = st.text_area("Enter text to find sentiment:")
+    st.markdown("**Press Ctrl+Enter to initiate the analysis.**")
     # Predicting sentiment
     if text != "": # if text is not empty
         vader_sentiment = vader.polarity_scores(text) # get the sentiment
