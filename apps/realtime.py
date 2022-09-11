@@ -14,7 +14,8 @@ import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 from wordcloud import WordCloud
-from textblob import TextBlob
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+vader = SentimentIntensityAnalyzer()
 
 nltk.download('wordnet')
 nltk.download('omw-1.4')
@@ -88,18 +89,18 @@ def wordcloud(clean_tweet):
 
 # Function to get the polarity score
 def calculate_polarity(tweet):
-    sentiment_polarity = TextBlob(tweet).sentiment.polarity
+    sentiment_polarity = vader.polarity_scores(tweet)
     return sentiment_polarity
 
 
 # Function to convert the polarity score into sentiment category
 def pred_sentiment(polarity_score):
-    if polarity_score < 0:
-        return "Negative"
-    elif polarity_score == 0:
-        return "Neutral"
-    else:
+    if polarity_score['compound'] >= 0.05:
         return "Positive"
+    elif polarity_score['compound'] <= -0.05:
+        return "Negative"
+    else:
+        return "Neutral"
 
 
 # defining function to plot the bar graph of sentiments
