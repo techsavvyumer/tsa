@@ -136,8 +136,6 @@ def app():
 
     st.sidebar.markdown("**Press Ctrl+Enter or Use the Slider to initiate the analysis.**") #instructions
 
-    st.image("https://i.ibb.co/K0NLxPw/Twitter-Sentiment-Analysis1.gif", use_column_width=True) #gif on main page
-
     st.write("This app analyzes the Twitter tweets and returns the most commonly used words, associated sentiments.")
     st.markdown('''
                 **Notes:**
